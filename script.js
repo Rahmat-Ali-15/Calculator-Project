@@ -48,7 +48,7 @@ allItems.forEach(item => {
   item.addEventListener("click", () => {
     const value = item.innerText.trim(); // get the button text
     
-    if (value === "C") {
+    if (value === "C" || value === "सी") {
       // clear button
       input.value = "";
     } 
