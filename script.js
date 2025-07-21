@@ -40,14 +40,41 @@ function enableLightMode() {
 
 
 
-// get all buttons
+// // get all buttons
 const input = document.querySelector("#input");
 const allItems = document.querySelectorAll(".items");
 
+// allItems.forEach(item => {
+//   item.addEventListener("click", () => {
+//     const value = item.innerText.trim(); // get the button text
+    
+//     if (value === "C" || value === "सी") {
+//       // clear button
+//       input.value = "";
+//     } 
+//     else if (value === "=") {
+//       // evaluate the expression
+//       try {
+//         input.value = eval(input.value);
+//       } catch {
+//         input.value = "Error";
+//       }
+//     } 
+//     else {
+//       // append value
+//       input.value += value;
+//     }
+//   });
+// });
+
+
+// Define all operators in an array
+const operators = ["+", "-", "*", "/"];
+
 allItems.forEach(item => {
   item.addEventListener("click", () => {
-    const value = item.innerText.trim(); // get the button text
-    
+    const value = item.innerText.trim();
+
     if (value === "C" || value === "सी") {
       // clear button
       input.value = "";
@@ -61,8 +88,20 @@ allItems.forEach(item => {
       }
     } 
     else {
-      // append value
-      input.value += value;
+      // check if the pressed button is an operator
+      if (operators.includes(value)) {
+        const lastChar = input.value.slice(-1); // get last character
+        if (operators.includes(lastChar)) {
+          // replace the last operator with the new one
+          input.value = input.value.slice(0, -1) + value;
+        } else {
+          // append operator normally
+          input.value += value;
+        }
+      } else {
+        // append normal numbers/characters
+        input.value += value;
+      }
     }
   });
 });
