@@ -37,3 +37,32 @@ function enableLightMode() {
   darkModeBtn.classList.remove("darkModeJs");
   localStorage.setItem("theme", "light");
 }
+
+
+
+// get all buttons
+const input = document.querySelector("#input");
+const allItems = document.querySelectorAll(".items");
+
+allItems.forEach(item => {
+  item.addEventListener("click", () => {
+    const value = item.innerText.trim(); // get the button text
+    
+    if (value === "C") {
+      // clear button
+      input.value = "";
+    } 
+    else if (value === "=") {
+      // evaluate the expression
+      try {
+        input.value = eval(input.value);
+      } catch {
+        input.value = "Error";
+      }
+    } 
+    else {
+      // append value
+      input.value += value;
+    }
+  });
+});
