@@ -11,6 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #333333;
+  transition: background 0.4s ease;
 }
 .container {
   position: relative;
@@ -28,6 +29,7 @@ body {
     "zero double_zero dot equal";
   gap: 15px;
   border-radius: 20px;
+  background-color: #333333;
   box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
     10px 10px 70px rgba(0, 0, 0, 0.25), inset -5px -5px 15px rgba(0, 0, 0, 0.5),
     inset 5px 5px 15px rgba(0, 0, 0, 0.5);
@@ -134,4 +136,32 @@ li {
   background: linear-gradient(90deg, #1479c9, #ffffff5c) !important;
   border: 1px solid #fff4;
   font-weight: 700;
+}
+/* <============ Dark Mode =============> */
+
+.dark_mode{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: #333333;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px #2b2b2b,-5px 5px 5px #2b2b2b,5px -5px 5px #2b2b2b,-5px -5px 5px #2b2b2b;
+}
+.dark{
+    background: #f8f8f8;
+    transition: background 0.4s ease;
+}
+.darkModeJs{
+    background-color: white;
+    box-shadow: 5px 5px 5px #efebeb,-5px 5px 5px #efebeb,5px -5px 5px #efebeb,-5px -5px 5px #efebeb;
+}
+.moon{
+    display: none;
 }
